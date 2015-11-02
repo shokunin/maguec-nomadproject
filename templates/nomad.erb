@@ -1,0 +1,18 @@
+####################################################################################
+#                     Puppet Controlled Template
+####################################################################################
+<% @final_sets.each do |k,v| -%>
+<%= k %> = <%= v %>
+<% end -%>
+<% if @nomad_role == 'server' -%>
+server {
+    enabled = true
+    # if in prod this should be more than 1
+    bootstrap_expect = <%= @bootstrap_expect %>
+}
+<% else -%>
+client {
+    enabled = true
+    servers = ["<% @server_list.join(":#{@port}\",\"")%>:<%= @port%>"]
+}
+<% end -%>
