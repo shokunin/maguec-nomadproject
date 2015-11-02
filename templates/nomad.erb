@@ -13,6 +13,6 @@ server {
 <% else -%>
 client {
     enabled = true
-    servers = ["<% @server_list.join(":#{@port}\",\"")%>:<%= @port%>"]
+    servers = ["<%= @server_list.join(":#{@port}\",\"")%>:<%= @port%>"]
 }
 <% end -%>
