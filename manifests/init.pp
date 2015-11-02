@@ -35,7 +35,7 @@ class nomadproject (
   $version = '0.1.2',
   $bin_dir = '/usr/bin',
   $data_dir = '/opt/nomad',
-  $download_url = "https://releases.hashicorp.com/nomad/${version}/nomad_${version}_${::os}_${::arch}.zip"
+  $download_url = "https://releases.hashicorp.com/nomad/${version}/nomad_${version}_linux_${::architecture}.zip"
   ){
 
   file { $data_dir:
