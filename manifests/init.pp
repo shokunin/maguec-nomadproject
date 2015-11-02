@@ -35,8 +35,10 @@ class nomadproject (
   $version = '0.1.2',
   $bin_dir = '/usr/bin',
   $data_dir = '/opt/nomad',
-  $download_url = "https://releases.hashicorp.com/nomad/${version}/nomad_${version}_linux_${::architecture}.zip"
   ){
+
+  $os = downcase($::kernel)
+  $download_url = "https://releases.hashicorp.com/nomad/${version}/nomad_${version}_${os}_${::architecture}.zip"
 
   file { $data_dir:
     ensure => 'directory',
