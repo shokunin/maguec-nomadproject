@@ -50,7 +50,7 @@ class nomadproject (
   }
 
   staging::file { 'nomad.zip':
-    source => $nomad::download_url
+    source => $download_url
   } ->
   staging::extract { 'nomad.zip':
     target  => $bin_dir,
