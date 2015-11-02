@@ -80,7 +80,7 @@ class nomadproject (
     mode  => '0555',
   }
 
-  file { '/etc/nomad.config':
+  file { '/etc/nomad.conf':
     ensure  => present,
     owner   => root,
     group   => root,
