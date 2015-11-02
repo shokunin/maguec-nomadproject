@@ -2,7 +2,7 @@
 #                     Puppet Controlled Template
 ####################################################################################
 <% @final_sets.each do |k,v| -%>
-<%= k %> = <%= v %>
+<%= k %> = "<%= v %>"
 <% end -%>
 <% if @nomad_role == 'server' -%>
 server {
