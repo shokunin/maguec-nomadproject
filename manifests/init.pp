@@ -50,6 +50,11 @@ class nomadproject (
     'bind_addr'  => $::ipaddress,
   }
 
+  if ($nomad_role == 'client') and ( size($server_list) == 0 ) {
+    notify { "WARNING: Set as ${nomad_role}, but no servers set => ${server_list}": }
+  }
+
+
   validate_hash($config_hash)
   $final_sets = merge($config_default, $config_hash)
 
