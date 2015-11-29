@@ -21,6 +21,9 @@
 # [*bin_dir*]
 #   Where to install the nomad binary
 #
+# [*bind_interface*]
+#   bind to a specific interface
+#
 # === Authors
 #
 # Chris Mague <github@mague.com>
@@ -39,6 +42,7 @@ class nomadproject (
   $nomad_role       = 'client',
   $datacenter       = 'nomad',
   $region           = 'nomad',
+  $bind_interface   = '',
   $bootstrap_expect = 1,
   $server_list      = [],
   $config_hash      = {},
