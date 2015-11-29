@@ -37,6 +37,8 @@ class nomadproject (
   $bin_dir          = '/usr/bin',
   $data_dir         = '/opt/nomad',
   $nomad_role       = 'client',
+  $datacenter       = 'nomad',
+  $region           = 'nomad',
   $bootstrap_expect = 1,
   $server_list      = [],
   $config_hash      = {},
@@ -44,8 +46,8 @@ class nomadproject (
 
   $config_default = {
     'data_dir'   => $data_dir,
-    'region'     => 'nomad',
-    'datacenter' => 'nomad',
+    'region'     => $region,
+    'datacenter' => $datacenter,
     'name'       => $::hostname,
     'bind_addr'  => $::ipaddress,
   }
