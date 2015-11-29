@@ -70,10 +70,6 @@ class nomadproject (
     mode   => '0755',
   }
 
-  if $::operatingsystem != 'darwin' {
-    ensure_packages(['unzip'])
-  }
-
   staging::file { 'nomad.zip':
     source => $download_url
   } ->
