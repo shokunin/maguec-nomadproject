@@ -1,4 +1,4 @@
-job "tru-web" {
+job "nomad-example" {
         region = "vagrant"
         datacenters = ["vagrant1"]
         constraint {
