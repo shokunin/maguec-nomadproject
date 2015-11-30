@@ -28,7 +28,7 @@ job "nomad-example" {
                         }
                         resources {
                                 cpu = 1000 # 1 Ghz
-                                memory = 1024 # 1GB
+                                memory = 100 # 1Mb - we are low in resources in vagrant
                                 network {
                                         mbits = 10
                                         dynamic_ports = ["3000"]
