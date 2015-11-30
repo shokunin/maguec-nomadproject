@@ -56,23 +56,27 @@ job "pocapp" {
 
 			# Configure Docker driver with the image
 			config {
+				consul {
+					address = "172.16.3.101:8500"
+				}
 				image = "maguec/golang-pocapp"
 				port_map {
 					db = 3000
 				}
 			}
 
-			#service {
-			#	name = "${TASKGROUP}-golang-pocapp"
-			#	tags = ["global", "cache"]
-			#	port = "db"
-			#	check {
-			#		name = "alive"
-			#		type = "tcp"
-			#		interval = "10s"
-			#		timeout = "2s"
-			#	}
-			#}
+			service {
+				name = "${TASKGROUP}-golang-pocapp"
+				tags = ["global", "poc"]
+				port = "db"
+				check {
+					name = "alive"
+					type = "http"
+					path = "/"
+					interval = "10s"
+					timeout = "2s"
+				}
+			}
 
 			# We must specify the resources required for
 			# this task to ensure it runs on a machine with
