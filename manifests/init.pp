@@ -60,6 +60,17 @@ class nomadproject (
     notify { "WARNING: Set as ${nomad_role}, but no servers set => ${server_list}": }
   }
 
+  if ($nomad_role == 'server') {
+    file { '/etc/example_job.nomad':
+      ensure => present,
+      owner  => root,
+      group  => root,
+      mode   => '0644',
+      source => 'puppet:///modules/nomadproject/example_job.nomad',
+    }
+  }
+    
+
 
   validate_hash($config_hash)
   $final_sets = merge($config_default, $config_hash)
