@@ -7,7 +7,7 @@
 # Document parameters here.
 #
 # [*version*]
-#   Version of nomad to install defaults to 0.2.1
+#   Version of nomad to install defaults to 0.2.3
 #
 # [*user*]
 #   Run user defaults to root
@@ -35,7 +35,7 @@
 class nomadproject (
   $user             = 'root',
   $group            = 'root',
-  $version          = '0.2.1',
+  $version          = '0.2.3',
   $port             = '4647',
   $bin_dir          = '/usr/bin',
   $data_dir         = '/opt/nomad',
